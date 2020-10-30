@@ -6,7 +6,7 @@
 2. [Experimental Evaluation of 3D-LIDAR Camera Extrinsic Calibration](https://arxiv.org/abs/2007.01959).
 
 ## Disclaimer
-This code is experimental. The backend is easy to understand and one can read the include files in the backend folder to better understand the geometric constraints employed.
+This code is experimental. The backend is easy to understand and one can read the include files in the backend folder to better understand the geometric constraints employed. The front-end might require special tweaking. 
 
 ## Working
 
