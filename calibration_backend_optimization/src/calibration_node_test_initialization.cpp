@@ -161,24 +161,24 @@ public:
             line1_sub = new
                     message_filters::Subscriber
                             <sensor_msgs::PointCloud2>(nh, "/line1_out", 1);
-            line2_sub = new
-                    message_filters::Subscriber
-                            <sensor_msgs::PointCloud2>(nh, "/line2_out", 1);
-            line3_sub = new
-                    message_filters::Subscriber
-                            <sensor_msgs::PointCloud2>(nh, "/line3_out", 1);
-            line4_sub = new
-                    message_filters::Subscriber
-                            <sensor_msgs::PointCloud2>(nh, "/line4_out", 1);
             normal1_sub = new
                     message_filters::Subscriber
                             <normal_msg::normal>(nh, "/normal1", 1);
+            line2_sub = new
+                    message_filters::Subscriber
+                            <sensor_msgs::PointCloud2>(nh, "/line2_out", 1);
             normal2_sub = new
                     message_filters::Subscriber
                             <normal_msg::normal>(nh, "/normal2", 1);
+            line3_sub = new
+                    message_filters::Subscriber
+                            <sensor_msgs::PointCloud2>(nh, "/line3_out", 1);
             normal3_sub = new
                     message_filters::Subscriber
                             <normal_msg::normal>(nh, "/normal3", 1);
+            line4_sub = new
+                    message_filters::Subscriber
+                            <sensor_msgs::PointCloud2>(nh, "/line4_out", 1);
             normal4_sub = new
                     message_filters::Subscriber
                             <normal_msg::normal>(nh, "/normal4", 1);
@@ -292,49 +292,6 @@ public:
             n.shutdown();
         }
         return ans;
-    }
-
-    void addGaussianNoise(Eigen::Matrix4d &transformation) {
-        std::vector<double> data_rot = {0, 0, 0};
-        const double mean_rot = 0.0;
-        std::default_random_engine generator_rot;
-        generator_rot.seed(std::chrono::system_clock::now().time_since_epoch().count());
-        std::normal_distribution<double> dist(mean_rot, 90);
-
-        // Add Gaussian noise
-        for (auto& x : data_rot) {
-            x = x + dist(generator_rot);
-        }
-
-        double roll = data_rot[0]*M_PI/180;
-        double pitch = data_rot[1]*M_PI/180;
-        double yaw = data_rot[2]*M_PI/180;
-
-        Eigen::Matrix3d m;
-        m = Eigen::AngleAxisd(roll, Eigen::Vector3d::UnitX())
-            * Eigen::AngleAxisd(pitch,  Eigen::Vector3d::UnitY())
-            * Eigen::AngleAxisd(yaw, Eigen::Vector3d::UnitZ());
-
-        std::vector<double> data_trans = {0, 0, 0};
-        const double mean_trans = 0.0;
-        std::default_random_engine generator_trans;
-        generator_trans.seed(std::chrono::system_clock::now().time_since_epoch().count());
-        std::normal_distribution<double> dist_trans(mean_trans, 0.5);
-
-        // Add Gaussian noise
-        for (auto& x : data_trans) {
-            x = x + dist_trans(generator_trans);
-        }
-
-        Eigen::Vector3d trans;
-        trans(0) = data_trans[0];
-        trans(1) = data_trans[1];
-        trans(2) = data_trans[2];
-
-        Eigen::Matrix4d trans_noise = Eigen::Matrix4d::Identity();
-        trans_noise.block(0, 0, 3, 3) = m;
-        trans_noise.block(0, 3, 3, 1) = trans;
-        transformation = transformation*trans_noise;
     }
 
     void solvePlaneOptimization() {
@@ -521,7 +478,6 @@ public:
         double avg_time_taken = 0;
         for(int counter = 0; counter < no_of_diff_initializations; counter++) {
             Eigen::Matrix4d transformation_matrix = Eigen::Matrix4d::Identity();
-//            addGaussianNoise(transformation_matrix);
             Rotn = transformation_matrix.block(0, 0, 3, 3);
             ceres::RotationMatrixToAngleAxis(Rotn.data(), axis_angle.data());
             translation = transformation_matrix.block(0, 3, 3, 1);
@@ -691,7 +647,7 @@ public:
             time_end2 = ros::Time::now();
             double time_taken2 = time_end2.toSec()-time_begin2.toSec();
             ROS_WARN_STREAM("Time taken 2: " << time_taken2);
-            ROS_WARN_STREAM("Time taken: " << time_taken1+time_taken2);
+            ROS_WARN_STREAM("Total Time taken: " << time_taken1+time_taken2);
             avg_time_taken += time_taken1 + time_taken2;
             std::cout << summary2.FullReport() << "\n";
 

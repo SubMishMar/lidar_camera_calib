@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/usl/catkin_ws/src/pbpc-cal/projection/cmake-build-debug/devel/setup.sh
