@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+  <arg name="computer_name" value="usl" />
+  <param name = "/use_sim_time" value="false"/>
+
+  <node  pkg="target_detector" name="target_detector_node_os" type="target_detector_node" output="screen">
+	<remap from="/cloud_in" to="/os1_cloud_node/points/rotated"/>
+    <remap from="/plane_out" to="/os1_cloud_node/points/rotated/plane"/>
+    <remap from="/plane_edge_out" to="/os1_cloud_node/points/rotated/with_edges/plane"/>
+  	<param name = "x_min" type= "double" value= "0.5"/>
+  	<param name = "x_max" type= "double" value= "5"/>
+  	<param name = "y_min" type= "double" value= "-2"/>
+  	<param name = "y_max" type= "double" value= "2"/>
+  	<param name = "z_min" type= "double" value= "-1"/>
+  	<param name = "z_max" type= "double" value= "1"/>
+  	<param name = "min_pts_plane" type= "int" value= "400"/>
+  	<param name = "min_pts_edge" type= "int" value= "16"/>
+  	<param name = "ransac_threshold_coarse" type= "double" value= "0.05"/>
+	<param name = "ransac_threshold_fine" type= "double" value= "0.01"/>
+  	<param name = "remove_outlier" value="true"/>
+  	<param name = "target_config_file_path" value="/home/$(arg computer_name)/catkin_ws/src/pbpc-cal/config/target_3.yaml"/>
+        <param name = "no_of_rings" value="64"/>
+	<param name = "lidar_name" value="os"/>
+  </node>
+</launch>  

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+  <arg name="computer_name" value="usl" />
+  <node  pkg="rotate_cloud" name="rotate_os_cloud_node" type="rotate_cloud_node" output="screen">
+	<remap from="/cloud_in" to="/os1_cloud_node/points"/>
+	<remap from="/cloud_out" to="/os1_cloud_node/points/rotated"/>
+  </node>
+</launch>

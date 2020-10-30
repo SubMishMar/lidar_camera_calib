@@ -1,0 +1,15 @@
+<launch>
+        <arg name="computer_name" value="usl" />
+
+        <param name ="/use_sim_time" value="false"/>
+        <node pkg="image_line_detection" type="image_line_detection_node" name="basler_image_line_detection" output="screen">
+              <remap from="/camera/image" to="/pylon_camera_node/image_raw/rotated"/>
+              <param name ="cam_config_file_path"
+                       value="/home/$(arg computer_name)/catkin_ws/src/pbpc-cal/config/pylonjeep_config.yaml"/>
+              <param name ="target_config_file_path"
+                       value="/home/$(arg computer_name)/catkin_ws/src/pbpc-cal/config/target_3.yaml"/>
+              <param name = "line_length_threshold" value="50"/>
+              <param name = "canny_threshold" value="200"/>
+              <param name = "camera_name" value="basler"/>
+        </node>
+</launch>
