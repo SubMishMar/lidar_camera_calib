@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+  <arg name="computer_name" value="usl" />
+  <param name = "/use_sim_time" value="false"/>
+
+  <node  pkg = "calibration_backend_optimization"
+         name="basler_calibration_node"
+         type="calibration_node_test_initialization_node"
+         output="screen">
+  	 <param name = "max_no_of_plane_views" value="10"/>
+  	 <param name = "max_no_of_line_views" value="30"/>
+
+  	 <param name = "usePlane" value="true"/>
+	 <param name = "plane_selection_threshold" value="0.90"/>
+  	 <param name = "useLines" value="true"/>
+	 <param name = "jointSol" value="false"/>
+
+	 <param name = "generate_debug_data" value="false"/>
+
+  	 <param name = "no_of_diff_initializations" value="1"/>
+  	 <param name = "debug_data_basefilename" value="/home/$(arg computer_name)/catkin_ws/src/pbpc-cal/backend_optimization/debug_data/basler"/>
+  	 <param name ="cam_config_file_path" value="/home/$(arg computer_name)/catkin_ws/src/pbpc-cal/config/pylonjeep_config.yaml"/>
+  	 <param name = "result_str" value="/home/$(arg computer_name)/catkin_ws/src/pbpc-cal/backend_optimization/debug_data/draw/C_T_L_basler_os.txt"/>
+     <param name = "initializations_file" value="/home/$(arg computer_name)/catkin_ws/src/pbpc-cal/matlab/initializations_basler.csv"/>
+  	 <param name = "results_file" value="/home/$(arg computer_name)/catkin_ws/src/pbpc/matlab/results_basler.csv"/>
+	 <param name ="target_config_file_path"
+			 value="/home/$(arg computer_name)/catkin_ws/src/pbpc-cal/config/target_3.yaml"/>
+	 <remap from="/points/plane" to="/os1_cloud_node/points/rotated/plane"/>
+	 <remap from="/line_image1" to="/basler/line_image1"/>
+	 <remap from="/line_image2" to="/basler/line_image2"/>
+	 <remap from="/line_image3" to="/basler/line_image3"/>
+	 <remap from="/line_image4" to="/basler/line_image4"/>
+	 <remap from="/normal1" to="/basler/normal1"/>
+	 <remap from="/normal2" to="/basler/normal2"/>
+	 <remap from="/normal3" to="/basler/normal3"/>
+	 <remap from="/normal4" to="/basler/normal4"/>
+	 <remap from="/normal_plane" to="/basler/normal_plane"/>
+	 <remap from="/tvec_plane" to="/basler/tvec_plane"/>
+  </node>
+</launch>

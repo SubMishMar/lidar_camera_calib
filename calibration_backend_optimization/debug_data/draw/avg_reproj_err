@@ -1,0 +1,13 @@
+avg line reprojection error results: 
+
+My method:
+left_os = 1.88829
+right_os = 1.84383
+left_vlp = 1.95631
+right_vlp = 2.07706
+
+GP method:
+left_os = 7.01005
+right_os = 9.64533
+left_vlp = 3.43154
+right_vlp = 3.0122

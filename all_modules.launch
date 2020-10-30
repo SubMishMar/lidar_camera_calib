@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+	<include file="$(find rotate_cloud)/launch/rotate_os_cloud.launch" />
+	<include file="$(find target_detector)/launch/target_detector_node_os.launch" />
+	<include file="$(find target_line_detector)/launch/target_line_detector_node_os.launch" />
+	<include file="$(find image_line_detection)/launch/basler_image_line_detection.launch" />
+</launch>  
