@@ -22,3 +22,9 @@ We have validated this code for the following sensor pairs:
 3. Point-grey Camera (CM3) <-> Velodyne-32 (VLP-32C) Channel Lidar
 4. Nerian Karmin2 Stereo Camera <-> Ouster-64 Channel Lidar
 5. Nerian Karmin2 Stereo Camera <-> Velodyne-32 (VLP-32C) Channel Lidar
+
+## Software requirements
+The code-base is implemented and tested on Ubuntu 16.04 systems running ROS-Kinetic. Other requirements are:
+1. Point Cloud Library 1.7
+2. OpenCV, ships with ROS
+3. Ceres Librar
