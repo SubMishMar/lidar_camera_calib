@@ -21,9 +21,12 @@ We have validated this code for the following sensor pairs:
 4. Nerian Karmin2 Stereo Camera <-> Ouster-64 Channel Lidar
 5. Nerian Karmin2 Stereo Camera <-> Velodyne-32 (VLP-32C) Channel Lidar
 
-The frontend can be finicky about the sensors used but the mathematics in the backend remains the same. One can use our backend with their own sensor specific frontend which published lines and planes, from both the sensing modalities, as our front-end does.
+The frontend can be finicky about the sensors used but the mathematics in the backend remains the same. One can use our backend with their own sensor specific frontend which publishes lines and planes, from both the sensing modalities, as our front-end does.
+
 ## Software requirements
-The code-base is implemented and tested on Ubuntu 16.04 systems running ROS-Kinetic. Other requirements are:
+The code-base is implemented and tested on Ubuntu 16.04 systems under the ROS-Kinetic framework. ROS is not a requirement per se but it is a good tool for communication between modules. 
+
+Other requirements are:
 1. Point Cloud Library 1.7
 2. OpenCV, ships with ROS
 3. Ceres Library
