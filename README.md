@@ -27,4 +27,4 @@ We have validated this code for the following sensor pairs:
 The code-base is implemented and tested on Ubuntu 16.04 systems running ROS-Kinetic. Other requirements are:
 1. Point Cloud Library 1.7
 2. OpenCV, ships with ROS
-3. Ceres Librar
+3. Ceres Library
