@@ -6,7 +6,7 @@
 2. [Experimental Evaluation of 3D-LIDAR Camera Extrinsic Calibration](https://arxiv.org/abs/2007.01959). [IROS-2020 Presentation](https://www.youtube.com/watch?v=cnBgSQyAj5E)
 
 ## Disclaimer
-This code is experimental. The backend is easy to understand and one may read the include files in the backend folder to better understand the geometric constraints employed. The front-end might require special tweaking. One may use this code-base as a reference for implementing their own calibration algorithm. 
+This code is experimental. The backend is easy to understand and one may read the include files in the backend folder to better understand the geometric constraints employed. The front-end might require special tweaking. One may use this code-base as a reference for implementing their own calibration algorithm. I, however, provide a working dataset for running the code. The instructions for running it is provided below.
 
 ## Working
 A planar target's plane and edges (also called features) are detected across both the sensing modalities and geometric constraints are use to related these features using the unknown extrinsic calibration between both the sensors. The geometric constraint is squared and summed over several observations and an optimization problem is formed which on minimization yeilds the unknown extrinsic calibration parameters between the sensors. 
@@ -31,3 +31,16 @@ Other requirements are:
 2. OpenCV, ships with ROS
 3. Ceres Library
 
+## Running the Code
+In four different terminals roslaunch as below:
+1. `roslaunch random_frame_generator random_frame_generator_basler_os.launch`
+2. `roslaunch target_detector target_detector_node_os.launch`
+3. `roslaunch target_line_detector target_line_detector_node_os.launch`
+4. `roslaunch image_line_detection basler_image_line_detection.launch`
+5. `roslaunch calibration_backend_optimization calibration_test_initialization_basler_os.launch`
+
+2,3,4 can be combined as one launch file. 
+
+Then press `[ENTER]` where on the terminal where you have launched 1. 
+
+The calibration routine should run and generate results. Read the launch files to detemine the location of data, target and sensor config files.
