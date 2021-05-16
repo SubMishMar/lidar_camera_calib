@@ -41,6 +41,15 @@ In different terminals roslaunch as below:
 
 2,3,4 can be combined as one launch file. 
 
-Then press `[ENTER]` where on the terminal where you have launched 1. 
+Then press `[ENTER]` on the terminal where you have launched 1. 
 
 The calibration routine should run and generate results. Read the launch files to detemine the location of data, target and sensor config files.
+
+## Validating Calibration Result
+One may validate the calibration result by using the estimated extrinsic calibration parameters to project lidar points onto the image plane. 
+In different terminals roslaunch as below:
+1. `roslaunch random_frame_generator random_frame_generator_basler_os.launch`
+2. `roslaunch projection basler_projection_node_os.launch`
+
+Then press `[ENTER]` on the terminal where you have launched 1. 
+
