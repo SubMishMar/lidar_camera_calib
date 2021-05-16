@@ -6,7 +6,7 @@
 2. [Experimental Evaluation of 3D-LIDAR Camera Extrinsic Calibration](https://arxiv.org/abs/2007.01959). [IROS-2020 Presentation](https://www.youtube.com/watch?v=cnBgSQyAj5E)
 
 ## Disclaimer
-This code is experimental. The backend is easy to understand and one may read the include files in the backend folder to better understand the geometric constraints employed. The front-end might require special tweaking. One may use this code-base as a reference for implementing their own calibration algorithm. I, however, provide a working dataset for running the code. The instructions for running it is provided below.
+This code is experimental. The backend is easy to grasp and one may read the include files in the backend folder to better understand the geometric constraints used for extrinsic calibration. The front-end might require special tweaking. One may use this code-base as a reference for implementing their own calibration algorithm. I, however, provide a working dataset for running the code. The instructions for running it is provided below.
 
 ## Working
 A planar target's plane and edges (also called features) are detected across both the sensing modalities and geometric constraints are use to related these features using the unknown extrinsic calibration between both the sensors. The geometric constraint is squared and summed over several observations and an optimization problem is formed which on minimization yeilds the unknown extrinsic calibration parameters between the sensors. 
