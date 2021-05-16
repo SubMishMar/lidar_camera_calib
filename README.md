@@ -24,7 +24,7 @@ We have validated this code for the following sensor pairs:
 The frontend can be finicky about the sensors used but the mathematics in the backend remains the same. One can use our backend with their own sensor specific frontend which publishes lines and planes, from both the sensing modalities, as our front-end does.
 
 ## Software requirements
-The code-base is implemented and tested on Ubuntu 16.04 systems. ROS-kinetic has been used as the middleware.
+Implemented and tested on Ubuntu 16.04 systems. ROS-kinetic has been used as the middleware. 
 
 Other requirements are:
 1. Point Cloud Library 1.7
