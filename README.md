@@ -32,7 +32,7 @@ Other requirements are:
 3. Ceres Library
 
 ## Running the Code
-In four different terminals roslaunch as below:
+In different terminals roslaunch as below:
 1. `roslaunch random_frame_generator random_frame_generator_basler_os.launch`
 2. `roslaunch target_detector target_detector_node_os.launch`
 3. `roslaunch target_line_detector target_line_detector_node_os.launch`
