@@ -247,6 +247,9 @@ public:
                 cloud_out_ros.header.stamp = cloud_msg->header.stamp;
                 cloud_out_ros.header.frame_id = cloud_msg->header.frame_id;
                 cloud_pub_edges.publish(cloud_out_ros);
+                ROS_INFO_STREAM("Published edge points on target");
+            } else {
+                ROS_WARN_STREAM("edge_plane->points.size() = " << edge_plane->points.size());
             }
             if(plane_filtered->points.size() > min_pts_plane) {
                 sensor_msgs::PointCloud2 cloud_out_ros;
@@ -254,6 +257,9 @@ public:
                 cloud_out_ros.header.stamp = cloud_msg->header.stamp;
                 cloud_out_ros.header.frame_id = cloud_msg->header.frame_id;
                 cloud_pub_planes.publish(cloud_out_ros);
+                ROS_INFO_STREAM("Published plane points on target");
+            } else {
+                ROS_WARN_STREAM("plane_filtered->points.size() = " << plane_filtered->points.size());
             }
         }
     }

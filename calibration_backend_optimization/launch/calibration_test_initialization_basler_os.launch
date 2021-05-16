@@ -8,7 +8,7 @@
          type="calibration_node_test_initialization_node"
          output="screen">
   	 <param name = "max_no_of_plane_views" value="10"/>
-  	 <param name = "max_no_of_line_views" value="60"/>
+  	 <param name = "max_no_of_line_views" value="20"/>
 
   	 <param name = "usePlane" value="true"/>
 	 <param name = "plane_selection_threshold" value="0.90"/>
@@ -19,7 +19,7 @@
 
   	 <param name = "no_of_diff_initializations" value="1"/>
   	 <param name = "debug_data_basefilename" value="/home/$(arg computer_name)/catkin_ws/src/pbpc-cal/backend_optimization/debug_data/basler"/>
-  	 <param name ="cam_config_file_path" value="/home/$(arg computer_name)/catkin_ws/src/pbpc-cal/config/pylonjeep_config.yaml"/>
+  	 <param name ="cam_config_file_path" value="/home/$(arg computer_name)/catkin_ws/src/pbpc-cal/config/basler.yaml"/>
   	 <param name = "result_str" value="/home/$(arg computer_name)/catkin_ws/src/pbpc-cal/calibration_backend_optimization/debug_data/draw/C_T_L_basler_os.txt"/>
      <param name = "initializations_file" value="/home/$(arg computer_name)/catkin_ws/src/pbpc-cal/matlab/initializations_basler.csv"/>
   	 <param name = "results_file" value="/home/$(arg computer_name)/catkin_ws/src/pbpc/matlab/results_basler.csv"/>
