@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <launch>
   <arg name="computer_name" value="usl" />
-  <param name ="/use_sim_time" value="true"/>
-  <include file="$(find rotate_cloud)/launch/rotate_os_cloud.launch" />
+  <!--<param name ="/use_sim_time" value="true"/>-->
+  <!--<include file="$(find rotate_cloud)/launch/rotate_os_cloud.launch" />-->
   <node  pkg="projection" name="basler_projection_node" type="projection_node" output="screen">
-    <remap from="/image_in" to="/pylon_camera_node/image_raw/rotated"/>
+    <remap from="/image_in" to="/pylon_camera_node/image_raw"/>
     <remap from="/cloud_in" to="/os1_cloud_node/points/rotated"/>
     <param name ="result_str" value="/home/$(arg computer_name)/catkin_ws/src/pbpc-cal/calibration_backend_optimization/debug_data/draw/C_T_L_basler_os.txt"/>
-    <param name ="cam_config_file_path" value="/home/$(arg computer_name)/catkin_ws/src/pbpc-cal/config/pylonjeep_config.yaml"/>
+    <param name ="cam_config_file_path" value="/home/$(arg computer_name)/catkin_ws/src/pbpc-cal/config/basler.yaml"/>
     <param name="base_folder_name" value="/home/$(arg computer_name)/projection_results/basler_projection_node_os/"/>
     <param name="x_threshold" value="6"/>
     <param name="camera_name" value="basler"/>
