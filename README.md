@@ -1,4 +1,4 @@
-## PBPC-Cal [Extrinsic Calibration of Camera and Lidar]
+## PBPC-Cal [Extrinsic Calibration of Camera and a 3D-Lidar]
 3D-Lidar Camera Calibration using  edge Point to Backprojected Plane Constraint
 
 ## Related Papers
